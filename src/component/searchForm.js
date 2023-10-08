@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
-  Pressable,
-} from "react-native";
+import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Feather } from "@expo/vector-icons";
 
@@ -42,7 +35,11 @@ export default function SearchForm({ onSearch }) {
         <Feather name="calendar" size={26} color="gray" />
         <DateTimePicker
           value={departDate}
-          onChange={(event, date) => setDepartDate(date || new Date())}
+          onChange={(event, date) => {
+            if (event.type === "set") {
+              setDepartDate(date || new Date());
+            }
+          }}
           minimumDate={new Date()}
         />
         <Text style={{ marginLeft: 10, color: "gainsboro", fontSize: 20 }}>
@@ -50,8 +47,12 @@ export default function SearchForm({ onSearch }) {
         </Text>
         <DateTimePicker
           value={returnDate}
+          onChange={(event, date) => {
+            if (event.type === "set") {
+              setReturnDate(date || new Date());
+            }
+          }}
           minimumDate={departDate}
-          onChange={(event, date) => setReturnDate(date || new Date())}
         />
       </View>
 

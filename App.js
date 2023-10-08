@@ -1,18 +1,24 @@
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, FlatList } from "react-native";
 import SearchForm from "./src/component/searchForm";
 import { LinearGradient } from "expo-linear-gradient";
+import data from "./data.json";
+import FlightOptionItem from "./src/component/FlightOptionItem";
+
+const option1 = data[5];
 
 export default function App() {
-  const onSearch = async (data) => {
-    console.log(data);
-  };
   return (
     <LinearGradient
       colors={["#4c669f", "transparent"]}
       style={styles.container}
     >
       <SafeAreaView>
-        <SearchForm onSearch={onSearch} />
+        <SearchForm />
+        <FlatList
+          data={data}
+          renderItem={({ item }) => <FlightOptionItem flight={item} />}
+          showsVerticalScrollIndicator={false}
+        />
       </SafeAreaView>
     </LinearGradient>
   );
