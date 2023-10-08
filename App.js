@@ -1,17 +1,20 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import SearchForm from "./src/component/searchForm";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function App() {
   const onSearch = async (data) => {
     console.log(data);
   };
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={["#4c669f", "transparent"]}
+      style={styles.container}
+    >
       <SafeAreaView>
         <SearchForm onSearch={onSearch} />
       </SafeAreaView>
-    </View>
+    </LinearGradient>
   );
 }
 

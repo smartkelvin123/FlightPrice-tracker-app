@@ -42,8 +42,8 @@ export default function SearchForm({ onSearch }) {
         <Feather name="calendar" size={26} color="gray" />
         <DateTimePicker
           value={departDate}
-          minimumDate={new Date()}
           onChange={(event, date) => setDepartDate(date || new Date())}
+          minimumDate={new Date()}
         />
         <Text style={{ marginLeft: 10, color: "gainsboro", fontSize: 20 }}>
           |
@@ -54,7 +54,6 @@ export default function SearchForm({ onSearch }) {
           onChange={(event, date) => setReturnDate(date || new Date())}
         />
       </View>
-      {/* <Pressable title="Search" onPress={onSearchPress}></Pressable> */}
 
       <Button title="Search" onPress={onSearchPress} />
     </View>
