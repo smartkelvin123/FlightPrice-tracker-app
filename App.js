@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import SearchForm from "./src/component/searchForm";
 
 export default function App() {
@@ -8,7 +8,9 @@ export default function App() {
   };
   return (
     <View style={styles.container}>
-      <SearchForm onSearch={onSearch} />
+      <SafeAreaView>
+        <SearchForm onSearch={onSearch} />
+      </SafeAreaView>
     </View>
   );
 }
