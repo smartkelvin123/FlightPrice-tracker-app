@@ -7,13 +7,20 @@ import FlightOptionItem from "./src/component/FlightOptionItem";
 const option1 = data[5];
 
 export default function App() {
+  const [items, setItems] = [];
+
+  const onSearch = (data) => {
+    console.log(data);
+    setItems(data);
+  };
+
   return (
     <LinearGradient
       colors={["#4c669f", "transparent"]}
       style={styles.container}
     >
       <SafeAreaView>
-        <SearchForm />
+        <SearchForm onSearch={onSearch} />
         <FlatList
           data={data}
           renderItem={({ item }) => <FlightOptionItem flight={item} />}
